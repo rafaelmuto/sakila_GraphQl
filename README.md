@@ -1,31 +1,16 @@
-# Adonis fullstack application
+# sakila graphQl
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+This app serves sakila example data base as graphQl.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Use docker-compose to build app
 
 ```bash
-adonis new yardstick
+docker-compose build
 ```
 
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
+```bash
+docker-compose up
 ```
+

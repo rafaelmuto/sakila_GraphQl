@@ -12,7 +12,7 @@ services:
       - 3333:${PORT}
     links:
       - "mysql_db"
-    command: bash -c "npm install && npm run start"
+    command: bash -c "npm install && npm run start-dev"
     networks:
       - sakila_network
 
