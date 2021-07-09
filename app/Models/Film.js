@@ -13,6 +13,10 @@ class Film extends Model {
         return 'film_id'
     }
 
+    language() {
+        return this.hasOne('App/Models/Language', 'language_id', 'language_id')
+    }
+
     static get visible() {
         return [
             'film_id',

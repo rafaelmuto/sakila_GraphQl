@@ -1,5 +1,7 @@
 'use strict'
 
+const _ = require('lodash')
+
 const { Command } = require('@adonisjs/ace')
 const Film = use('App/Models/Film')
 
@@ -15,21 +17,21 @@ class Test extends Command {
   async handle(args, options) {
     this.info('Dummy test command')
 
-    const one_film = await Film.query().where('film_id', 1).firstOrFail()
+    const film = await Film.query().where('film_id', 1).with('language').firstOrFail()
 
-    console.log(one_film)
+    console.log(film.getId(), film.title)
 
+    const film_language = await film.language().fetch()
+
+    console.log(film_language.getId(), film_language.name)
 
     console.log('====================================')
 
+    const many_films = (await Film.all()).rows
 
-    const many_films = await Film.all()
+    _.forEach(many_films, (film) => {
+    })
 
-    console.log(many_films)
-
-    many_films.forEach(Film => {
-      console.log(Film.film_id)
-    });
   }
 }
 
