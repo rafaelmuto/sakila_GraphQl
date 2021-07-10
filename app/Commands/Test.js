@@ -4,6 +4,7 @@ const _ = require('lodash')
 
 const { Command } = require('@adonisjs/ace')
 const Film = use('App/Models/Film')
+const Actor = use('App/Models/Actor')
 
 class Test extends Command {
   static get signature() {
@@ -27,10 +28,10 @@ class Test extends Command {
 
     console.log('====================================')
 
-    const many_films = (await Film.all()).rows
 
-    _.forEach(many_films, (film) => {
-    })
+    const actor = await Actor.query().where('actor_id', 1).firstOrFail()
+
+    console.log(actor.getId(), actor.getName())
 
   }
 }
